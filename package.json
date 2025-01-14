@@ -2,7 +2,9 @@
   "scripts": {
     "compile": "hardhat compile",
     "test": "hardhat test",
-    "hardhat:run": "hardhat run scripts/$npm_config_file"
+    "hardhat:run": "hardhat run scripts/$npm_config_file",
+    "hardhat:node": "hardhat node",
+    "hardhat:deploy": "hardhat run scripts/deploy.ts --network localhost"
   },
   "dependencies": {
     "hardhat": "^2.22.18"
