@@ -1,9 +1,19 @@
 import hre from "hardhat";
 
 const main = async () => {
-  const post = await hre.ethers.deployContract('Post');
+  const [owner] = await hre.ethers.getSigners();
+  const post = (await hre.ethers.deployContract('Post'));
   await post.waitForDeployment();
+
   console.log('Post deployed to:', post.target);
+  console.log('Deployed by:', owner.address);
+
+  await post.getTotalPosts();
+
+  const waveTxn = await post.createPost();
+  await waveTxn.wait();
+
+  await post.getTotalPosts();
 }
 
 const runMain = async () => {
