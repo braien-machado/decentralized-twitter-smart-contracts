@@ -7,7 +7,9 @@ const main = async () => {
   console.log('Deployed by:', owner.address);
   console.log('Account balance:', accountBalance.toString());
 
-  const post = await hre.ethers.deployContract('Post');
+  const post = await hre.ethers.deployContract('Post', {
+    value: hre.ethers.parseEther('0.03')
+  });
   await post.waitForDeployment();
 
   console.log('Post deployed to:', post.target);
