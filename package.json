@@ -4,9 +4,10 @@
     "test": "hardhat test",
     "hardhat:run": "hardhat run scripts/$npm_config_file",
     "hardhat:node": "hardhat node",
-    "hardhat:deploy": "hardhat run scripts/deploy.ts --network localhost"
+    "hardhat:deploy": "hardhat run scripts/deploy.ts --network $npm_config_host"
   },
   "dependencies": {
+    "dotenv": "^16.4.7",
     "hardhat": "^2.22.18"
   },
   "devDependencies": {
